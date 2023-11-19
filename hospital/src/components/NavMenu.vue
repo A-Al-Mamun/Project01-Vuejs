@@ -1,5 +1,16 @@
 <template>
-    <i class="fa-solid fa-bars openBar" v-on="openBtn"></i>
+    <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Doctors</a>
+        <a href="#">Contact</a>
+        <a href="#">Appoinment</a>
+    </div>
+    <div class="header-btn">
+        <Log />
+        <a href="#">log In</a>
+    </div>
+    <i class="fa-solid fa-bars openBar"></i>
     <nav class="menu">
         <i class="fa-solid fa-xmark closeBar"></i>
         <a href="#">Home</a>
@@ -9,8 +20,12 @@
 </template>
 
 <script>
+import Log from './Log.vue'
 export default {
     name: 'NavMenu',
+    component: {
+        Log,
+    },
     methods: {
         openBtn(){
             let menu = document.getElementsByClassName('menu')[0];
@@ -24,6 +39,21 @@ export default {
 body{
     overflow: hidden;
     position: relative;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+.menu a{
+    display: inline-block;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #000;
+    transition: 0.4s;
+}
+.menu a:hover{
+    color: #00000040;
 }
 .openBar{
     position: absolute;

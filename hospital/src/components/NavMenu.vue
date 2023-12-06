@@ -7,8 +7,7 @@
         <a href="#">Appoinment</a>
     </div>
     <div class="header-btn">
-        <Log />
-        <a href="#">log In</a>
+        <a href="../pages/login.html" target="_blank">log In</a>
     </div>
     <i class="fa-solid fa-bars openBar"></i>
     <nav class="menu">
@@ -20,17 +19,13 @@
 </template>
 
 <script>
-import Log from './Log.vue'
 export default {
     name: 'NavMenu',
     component: {
-        Log,
+        
     },
     methods: {
-        openBtn(){
-            let menu = document.getElementsByClassName('menu')[0];
-            menu.style.tranform = 'translate(0px)';
-        }
+
     }
 }
 </script>

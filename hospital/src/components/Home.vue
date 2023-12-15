@@ -4,8 +4,18 @@
     </header>
      
     <main>
-        <h1>Home Component</h1>  
-
+        
+        <!-- Set up your HTML -->
+        <div class="owl-carousel">
+            <div> Your Content </div>
+            <div> Your Content </div>
+            <div> Your Content </div>
+            <div> Your Content </div>
+            <div> Your Content </div>
+            <div> Your Content </div>
+            <div> Your Content </div>
+        </div>
+        
         <footer>
             <Footer />
         </footer>
@@ -22,6 +32,14 @@ export default {
     components: {
         Nav, 
         Footer,
+    },
+    data(){
+        return{
+            name: "Mamun",
+        }
+    },
+    methods:{
+        
     }
 }
 </script>
@@ -41,7 +59,7 @@ main{
     position: absolute;
     left: 0;
     top: 0;
-    background: red;
+    background: rgba(165, 22, 153, 0.76);
     width:100%;
     height: 100vh;
     padding-top: 80px;
@@ -49,7 +67,7 @@ main{
 }
 footer{
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     left: 0;
     width: 100%;
 }

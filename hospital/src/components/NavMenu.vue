@@ -7,18 +7,18 @@
         <a href="#">Appoinment</a>
     </div>
     <div class="header-btn">
-        <a v-on:click = "myFunction()" href="#">log In</a>
-        <div class="log-active">
+        <a v-on:click="show=!show" href="#" id="login-btn">{{ data.name }}</a>
+        <div v-if="show" class="log-active">
             <img src="../assets/logo.png" alt="">
             <h3>Log In</h3>
             <form action="#">
-                <input type="email" name="email" id="">
-                <input type="password" name="pass" id="">
-                <input type="submit" name="sub" value="Log In">
+                <input v-model="email" type="email" name="email" placeholder="Enter email">
+                <input v-model="pass" type="password" name="pass" placeholder="Enter password">
+                <input type="submit" v-on:click="myLoginFunction()" name="sub" value="Log In">
             </form>
         </div>
     </div>
-    <i class="fa-solid fa-bars openBar" v-on:click = "myNavFunction()"></i>
+    <i class="fa-solid fa-bars openBar" v-on:click="myNavFunction()"></i>
     <nav id="menu2">
         <i class="fa-solid fa-xmark closeBar"></i>
         <a href="#">Home</a>
@@ -30,15 +30,20 @@
 <script>
 export default {
     name: 'NavMenu',
+    props:{
+        data:String,
+    },
     component: {
         
     },
+    data(){
+        return{
+            email: null,
+            pass: null,
+            show: false,
+        }
+    },
     methods: {
-        myFunction(){
-            let log = document.querySelector('.header-btn a');
-            let active = document.querySelector('.log-active');
-            active.style.display = 'flex';
-        },
         myNavFunction(){
             let nav = document.getElementById('menu2');
             let closeNav = document.getElementsByClassName('closeBar')[0];
@@ -46,6 +51,16 @@ export default {
             closeNav.addEventListener('click', () => {
                 nav.style.display = 'none';
             })
+        },
+        myLoginFunction(){
+            let loginBtn = document.getElementById('login-btn');
+            if((this.email == 'admin@gmail.com')&&(this.pass == 'admin')){
+                loginBtn.innerText = 'Admin';
+                let active = document.querySelector('.log-active');
+                active.style.display = 'none';
+            }else{
+                alert('Not Matched the user and password');
+            }
         }
     }
 }
@@ -108,6 +123,7 @@ nav i{
     font-size: 35px;
 }
 
+
 .log-active{
     position: absolute;
     top: 0;
@@ -115,7 +131,7 @@ nav i{
     width: 100%;
     height: 100vh;
     background: #00000050;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;

@@ -8,7 +8,7 @@
     <div class="reuse">
         <ul>
             <li v-for="item in user" :key="item">
-                <Nav :data="item" />
+                <!-- <Nav :data="item" />/ -->
             </li>
         </ul>
     </div>

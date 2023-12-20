@@ -7,7 +7,7 @@
         <a href="#">Appoinment</a>
     </div>
     <div class="header-btn">
-        <a v-on:click="show=!show" href="#" id="login-btn">{{ data.name }}</a>
+        <a v-on:click="show=!show" href="#" id="login-btn">Log in</a>
         <div v-if="show" class="log-active">
             <img src="../assets/logo.png" alt="">
             <h3>Log In</h3>

@@ -1,21 +1,21 @@
 <template>
-<header>
-    <Nav />
-</header>
+    <header>
+        <Nav />
+    </header>
 
-<main>
+    <main>
 
-    <div class="reuse">
-        <ul>
-            <li v-for="item in user" :key="item">
-                <!-- <Nav :data="item" />/ -->
-            </li>
-        </ul>
-    </div>
-    <footer>
-        <Footer />
-    </footer>
-</main>
+        <div class="reuse">
+            <ul>
+                <li v-for="item in user" :key="item">
+                    <img v-bind:src="item.url">
+                </li>
+            </ul>
+        </div>
+        <footer>
+            <Footer />
+        </footer>
+    </main>
 </template>
 
 <script>
@@ -33,7 +33,8 @@ export default {
             name: "Mamun",
             user: [{
                     email: "admin@gmail.com",
-                    name: "admin"
+                    name: "admin",
+                    url: "../assets/logo.png"
                 },
                 {
                     email: "user@gmail.com",
